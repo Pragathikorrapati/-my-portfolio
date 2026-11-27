@@ -1,0 +1,65 @@
+body.kinetic-page {background:#100e19;color:#f6f1ff;color-scheme:dark}
+.kinetic {
+  --paper:#100e19;
+  --card:#1b1629;
+  --ink:#f6f1ff;
+  --muted:#c9bfdc;
+  --line:#514465;
+  --cobalt:#c7adff;
+  --orange:#ffb889;
+  color:var(--ink);
+  background:radial-gradient(ellipse at 80% 16%,#251941,transparent 50%),var(--paper);
+}
+.kinetic .atlas-header {background:#100e19eb;backdrop-filter:blur(14px)}
+.kinetic .brand span,.kinetic .action,.kinetic .contact-links a {color:#201439}
+.kinetic .action:hover,.kinetic .contact-links a:hover {background:#e0cfff}
+.kinetic .secondary {color:var(--ink);background:transparent;border-color:var(--line)}
+.kinetic .secondary:hover {background:#302442;color:var(--ink)}
+.kinetic .hero {
+  background:radial-gradient(26rem circle at var(--point-x, 70%) var(--point-y, 30%),#713cb346,transparent 93%);
+}
+.kinetic .hero-grid {grid-template-columns:1.05fr 1fr;gap:1rem;padding-block:clamp(2rem,6vw,5rem)}
+.kinetic .hero-grid > div,.kinetic .context-strip,.kinetic .skills-grid article {
+  background:#211a31d9;
+  border:1px solid #635579;
+  border-radius:1.1rem;
+}
+.kinetic .hero-grid > div {padding:clamp(.9rem,3vw,2.5rem)}
+.kinetic .hero-copy {
+  align-self:stretch;display:flex;flex-direction:column;justify-content:center;
+  background:linear-gradient(135deg,#32234a,#1b1628 64%);
+}
+.kinetic h1 {font-size:clamp(2.55rem,7vw,6.6rem);letter-spacing:-.075em}
+.kinetic h1 em {display:block;color:#dcc5ff}
+.kinetic .eyebrow {color:#ffc49d}
+.kinetic .context-strip {padding:1rem 1.2rem;margin-bottom:1rem}
+.kinetic .system-map {background:#171225;border-color:#695687;box-shadow:none}
+.kinetic .map-header {background:#322449}
+.kinetic .map-plane {background-image:linear-gradient(#b694ff24 1px,transparent 1px),linear-gradient(90deg,#b694ff24 1px,transparent 1px)}
+.kinetic .map-plane li {background:#291f3d;border-color:#8770a9;color:#f6efff}
+.kinetic .map-path {border-color:#9574cf}
+.kinetic .system-map figcaption {background:#221a33;border-color:#625277;color:#e7d8fa}
+.kinetic .map-select button,.kinetic .skill-filter button {background:#271e39;color:var(--ink);border:1px solid #7b6894;border-radius:.45rem}
+.kinetic .map-select button[aria-pressed=true],.kinetic .skill-filter button[aria-pressed=true] {background:#c7adff;color:#201439;border-color:#c7adff}
+.kinetic .case-selector button[aria-pressed=true] {background:#2c2041;border-color:#9379bb}
+.kinetic .case-detail {background:var(--card);border-radius:.8rem}
+.kinetic .tags li,.kinetic .skill-chips li {background:#342548;color:#f0e2ff}
+.kinetic .result {background:#2f202b}
+.kinetic .journey,.kinetic .about {background:#181322}
+.kinetic .skill-filter,.kinetic .skill-chips {display:flex;gap:.45rem;flex-wrap:wrap}
+.kinetic .skill-filter {margin-bottom:1.1rem}
+.kinetic .skill-filter button {min-height:2.75rem;padding:.4rem .68rem}
+.kinetic .skills-grid article {padding:1rem}
+.kinetic .skills-grid article:nth-child(1) {background:#2b2041}
+.kinetic .skills-grid article:nth-child(4) {background:#30222d}
+.kinetic .skill-chips {list-style:none;padding:0;margin:.7rem 0 0}
+.kinetic .skill-chips li {padding:.23rem .47rem;border:1px solid #665279;border-radius:.35rem;font-size:.88rem}
+.kinetic .skip-link {color:var(--ink)}
+@keyframes kinetic-enter {from{opacity:.55;transform:translateY(.55rem)} to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:no-preference) {
+  .kinetic[data-motion-paused=false] .skills-grid article {animation:kinetic-enter .38s ease-out both}
+  .kinetic[data-motion-paused=false] .skills-grid article:nth-child(even) {animation-delay:.06s}
+}
+@media(max-width:53rem) {
+  .kinetic .hero-grid {grid-template-columns:1fr}
+}
