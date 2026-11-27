@@ -7,6 +7,9 @@ import { clientProjects, contact, engagements, featuredStack, innovation, profil
 
 import SkillExplorer from './SkillExplorer'
 
+const [givenName, ...familyNames] = profile.name.split(' ')
+const familyName = familyNames.join(' ')
+
 const Scene = lazy(() => import('./Scene'))
 const navigation = [
   ['home', 'Home'], ['about', 'About'],
@@ -225,7 +228,9 @@ export default function App() {
           <div className="shell hero-grid">
             <div className="hero-copy">
               <p className="eyebrow">{profile.title}</p>
-              <h1 id="hero-title" className="hero-name">{profile.name}</h1>
+              <h1 id="hero-title" className="hero-name">
+                <span>{givenName}</span>{' '}<span>{familyName}</span>
+              </h1>
               <p className="hero-headline">{profile.headline}</p>
               <p className="hero-intro">{profile.introduction}</p>
               <div className="hero-actions">
