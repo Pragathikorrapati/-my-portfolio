@@ -1,0 +1,105 @@
+#pragathi-themes .demo {
+  --pad: clamp(1rem, 5vw, 3.8rem);
+  color: var(--ink); background: var(--paper); font: 1rem/1.55 var(--body, system-ui);
+  min-height: 49rem; overflow: clip;
+}
+#pragathi-themes .demo * { box-sizing: border-box; }
+#pragathi-themes .demo :is(h2,h3,p,ul) { margin: 0; }
+#pragathi-themes .demo button { font: inherit; color: inherit; }
+#pragathi-themes .demo a { color: inherit; }
+#pragathi-themes .demo header {
+  padding: .85rem var(--pad); display: flex; flex-wrap: wrap; align-items: center;
+  justify-content: space-between; gap: .65rem; border-bottom: 1px solid var(--line);
+}
+#pragathi-themes .demo nav { display: flex; flex-wrap: wrap; gap: .4rem .85rem; }
+#pragathi-themes .demo nav button { padding: .3rem 0; background: none; border: 0; border-bottom: 2px solid transparent; }
+#pragathi-themes .demo nav button[aria-pressed=true] { border-color: var(--accent); }
+#pragathi-themes .monogram { font-weight: 700; letter-spacing: .08em; }
+#pragathi-themes .hero-demo {
+  padding: clamp(2rem, 6vw, 4rem) var(--pad); display: grid; align-items: center;
+  grid-template-columns: 1.4fr 1fr; gap: clamp(1rem, 4vw, 2.8rem);
+}
+#pragathi-themes .title-demo { font: 650 clamp(2.5rem, 6vw, 5.3rem)/.97 var(--display, system-ui); letter-spacing: -.065em; }
+#pragathi-themes .kicker-demo { font: 600 .82rem/1.4 var(--body, system-ui); letter-spacing: .09em; text-transform: uppercase; color: var(--accent); }
+#pragathi-themes .hero-demo .kicker-demo { margin-bottom: .9rem; }
+#pragathi-themes .intro-demo { max-width: 36ch; margin-top: 1rem !important; }
+#pragathi-themes .intro-demo + button { margin-top: 1.15rem; }
+#pragathi-themes .demo .cta-demo { background: var(--action, var(--accent)); color: var(--action-ink, var(--paper)); border: 0; padding: .55rem .85rem; border-radius: var(--radius, .35rem); }
+#pragathi-themes .feature-demo { display: grid; gap: .65rem; padding: 1.25rem; color: var(--feature-ink, var(--ink)); background: var(--feature); border: 1px solid var(--line); border-radius: var(--radius, .35rem); }
+#pragathi-themes .feature-demo strong { font: 600 clamp(1.4rem, 3vw, 2.4rem)/1.1 var(--display, system-ui); }
+#pragathi-themes .feature-demo span { font-size: .9rem; }
+#pragathi-themes .feature-demo ul { padding-left: 1.2rem; }
+#pragathi-themes .page-demo { padding: 1.25rem var(--pad) 2.25rem; border-top: 1px solid var(--line); }
+#pragathi-themes .page-demo > h3 { font: 600 clamp(1.4rem, 3vw, 2.25rem)/1.15 var(--display, system-ui); margin-bottom: .75rem; }
+#pragathi-themes .entries-demo { display: grid; gap: .6rem; grid-template-columns: repeat(2,minmax(0,1fr)); }
+#pragathi-themes .entry-demo { padding: .75rem .95rem; border: 1px solid var(--line); border-radius: var(--radius, .35rem); background: var(--panel, transparent); overflow-wrap: anywhere; }
+#pragathi-themes summary { font-weight: 650; }
+#pragathi-themes .entry-demo p { margin-top: .35rem; }
+#pragathi-themes .meta-demo { font-size: .86rem; color: var(--accent); }
+#pragathi-themes .demo [hidden] { display: none !important; }
+#pragathi-themes .editorial { --paper:#f8f1e5; --ink:#291d19; --accent:#933b29; --line:#c7ada0; --feature:#ecddc9; --display:Georgia,serif; --radius:0; }
+#pragathi-themes .editorial header { justify-content: center; }
+#pragathi-themes .editorial header .monogram { flex-basis:100%; text-align:center; font-family:Georgia,serif; }
+#pragathi-themes .editorial .hero-demo { grid-template-columns:1.75fr 1fr; }
+#pragathi-themes .editorial .title-demo { font-weight:500; }
+#pragathi-themes .editorial .feature-demo { border-width: 4px 0 0; background: transparent; }
+#pragathi-themes .editorial .entries-demo { grid-template-columns:1fr; }
+#pragathi-themes .editorial .entry-demo { border-width:1px 0 0; }
+#pragathi-themes .blueprint { --paper:#101b38; --ink:#e6efff; --accent:#96dcff; --line:#3d567d; --feature:#182d55; --body:ui-monospace,monospace; --display:ui-monospace,monospace; --radius:0; }
+#pragathi-themes .blueprint .hero-demo { background-image:linear-gradient(#7596d51c 1px,transparent 1px),linear-gradient(90deg,#7596d51c 1px,transparent 1px); background-size:22px 22px; }
+#pragathi-themes .blueprint .title-demo { font-size:clamp(2rem,5.2vw,4.4rem); }
+#pragathi-themes .blueprint .feature-demo { border-style:dashed; }
+#pragathi-themes .blueprint .feature-demo strong { color:var(--accent); }
+#pragathi-themes .blueprint .feature-demo li::marker { content:"›  "; }
+#pragathi-themes .studio { --paper:#f2effd; --ink:#22183e; --accent:#542496; --line:#c8b9e7; --feature:#d8c8ff; --panel:#fff; --radius:1.05rem; }
+#pragathi-themes .studio .hero-demo { grid-template-columns: 1fr; text-align:center; justify-items:center; gap:1.5rem; padding-top:2rem; }
+#pragathi-themes .studio .intro-demo { margin-inline:auto; }
+#pragathi-themes .studio .feature-demo { width:100%; grid-template-columns:1fr 1fr; align-items:center; }
+#pragathi-themes .studio .feature-demo strong { grid-row:span 2; }
+#pragathi-themes .studio .title-demo br { display:none; }
+#pragathi-themes .ledger { --paper:#fcfcf8; --ink:#232726; --accent:#3f5c26; --line:#c8cec2; --feature:#edf0e8; --radius:0; }
+#pragathi-themes .ledger .hero-demo { grid-template-columns:.9fr 1.4fr; }
+#pragathi-themes .ledger .feature-demo { order:-1; border-width:0 0 0 4px; border-color:var(--accent); }
+#pragathi-themes .ledger .title-demo { font-size:clamp(2.2rem,5.4vw,4.4rem); }
+#pragathi-themes .ledger .entries-demo { grid-template-columns:1fr; gap:0; }
+#pragathi-themes .ledger .entry-demo { border-width:0 0 1px; padding-inline:0; }
+#pragathi-themes .signal { --paper:#19161d; --ink:#fff2e6; --accent:#ffae83; --line:#72514f; --feature:#562a32; --action:#ffae83; --radius:0; }
+#pragathi-themes .signal .hero-demo { background:linear-gradient(122deg,#19161d 52%,#522b40 52%); }
+#pragathi-themes .signal .title-demo { text-transform:uppercase; font-family:Impact,"Arial Black",system-ui; font-weight:750; font-size:clamp(2.1rem,5.8vw,4.5rem); }
+#pragathi-themes .signal .feature-demo { color:#fff2e6; border-left:5px solid var(--accent); }
+#pragathi-themes .signal .entry-demo:nth-child(even) { background:#36202b; }
+@media(max-width:610px) {
+  #pragathi-themes .demo .hero-demo { grid-template-columns:1fr; }
+  #pragathi-themes .ledger .feature-demo { order:initial; }
+  #pragathi-themes .demo .entries-demo { grid-template-columns:1fr; }
+  #pragathi-themes .demo nav button { min-height:44px; }
+}
+
+
+body { margin:0; background:#0b1426; font-family:system-ui,sans-serif; }
+main { max-width:78rem; margin:auto; }
+.picker { padding:1rem clamp(1rem,5vw,3.8rem); border-bottom:1px solid #314765; color:#f1f5f9; background:#101d33; }
+.picker-header { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.5rem 1rem; margin-bottom:.75rem; }
+.picker h1 { margin:0; font-size:1.05rem; }
+.picker a { color:inherit; }
+.picker nav { display:flex; flex-wrap:wrap; gap:.4rem; }
+.picker nav a { display:flex; align-items:center; min-height:44px; padding:0 .75rem; border:1px solid #567092; border-radius:.45rem; text-decoration:none; }
+.picker nav a:hover,.picker nav a[aria-current=true] { color:#092336; background:#9be7f7; border-color:#9be7f7; }
+:focus-visible { outline:3px solid currentColor; outline-offset:3px; }
+#pragathi-themes .demo[hidden] { display:none; }
+#pragathi-themes .demo button,#pragathi-themes summary { cursor:pointer; }
+#pragathi-themes .blueprint .hero-demo { background-size:22px 22px; }
+#pragathi-themes .studio .hero-demo { background:radial-gradient(ellipse at 50% 12%,#d6c3fc,transparent 66%); }
+#pragathi-themes .signal .hero-demo { background-size:126% 126%; }
+@keyframes theme-enter { from { opacity:.35; transform:translateY(10px); } to { opacity:1; transform:none; } }
+@keyframes blueprint-grid { to { background-position:44px 22px; } }
+@keyframes studio-glow { from { box-shadow:0 0 0 #5630a733; } to { box-shadow:0 0 32px #5630a74a; } }
+@keyframes signal-light { from { background-position:0 0; } to { background-position:100% 100%; } }
+@media(prefers-reduced-motion:no-preference) {
+  #pragathi-themes .editorial .hero-demo > div,
+  #pragathi-themes .ledger .feature-demo { animation:theme-enter .45s ease-out both; }
+  #pragathi-themes .blueprint .hero-demo { animation:blueprint-grid 14s linear infinite; }
+  #pragathi-themes .studio .feature-demo { animation:studio-glow 5s ease-in-out infinite alternate; }
+  #pragathi-themes .signal .hero-demo { animation:signal-light 7s ease-in-out infinite alternate; }
+  #pragathi-themes .ledger .entry-demo:hover { background:var(--feature); }
+}
