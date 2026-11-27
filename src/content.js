@@ -18,26 +18,31 @@ export const engagements = [
     company: 'Superior Court of Los Angeles County', sector: 'Government', place: 'Los Angeles, CA',
     dates: 'Nov 2023 – Present', role: 'Senior Full Stack .NET Developer',
     work: 'Built judicial microservices and accessible applications for case processing, document management, and court operations. Automated deployments with Azure DevOps and supported production with Azure Monitor and Application Insights.',
+    environment: ['C#', '.NET 8/10', 'ASP.NET Core 8 Web API', 'Blazor', 'Angular 17/18', 'TypeScript', 'Microservices', 'RESTful APIs', 'Entity Framework Core 8', 'SQL Server 2022', 'Power BI', 'Apache Kafka', 'Azure Service Bus', 'APIM', 'Azure Blob Storage', 'Azure AD', 'OAuth 2.0', 'OpenID Connect', 'JWT Authentication', 'Azure OpenAI', 'Azure AI Search', 'Semantic Kernel', 'RAG', 'Claude AI', 'GitHub Copilot', 'Docker', 'AKS', 'Azure Functions', 'Azure DevOps', 'Azure Monitor', 'Application Insights', 'xUnit', 'Postman', 'Git', 'Agile Scrum.'],
   },
   {
     company: 'Optum', sector: 'Healthcare', place: 'Eden Prairie, MN',
     dates: 'Sep 2021 – Oct 2023', role: 'Senior Full Stack .NET Developer',
     work: 'Designed .NET microservices and Angular portals for enrollment and claims. Integrated Dynamics 365, Dataverse, and Azure Functions to automate member workflows and synchronize data.',
+    environment: ['C#', '.NET 5/6', 'ASP.NET Core Web API', 'Microservices', 'Onion Architecture', 'Angular 12/13/14/15/16', 'RESTful APIs', 'Entity Framework Core 6', 'LINQ', 'SQL Server 2019', 'HIPAA Compliant', 'HL7', 'FHIR', 'AHDS', 'ANSI X12 EDI', 'Microsoft Dynamics 365 CRM/CE', 'Dataverse', 'Power Apps', 'Power Automate', 'APIM', 'Azure Functions', 'Azure App Services', 'Azure Service Bus', 'Azure Key Vault', 'Azure AD', 'OAuth2', 'OpenID Connect', 'JWT Authentication', 'RabbitMQ', 'Power BI', 'xUnit', 'Karma', 'Jasmine', 'Azure DevOps CI/CD', 'SonarQube', 'Log4Net', 'Git', 'JIRA', 'Agile Scrum.'],
   },
   {
     company: 'BHG Financial', sector: 'Finance', place: 'Davie, FL',
     dates: 'Jun 2019 – Aug 2021', role: 'Full Stack .NET Developer',
     work: 'Built React interfaces and ASP.NET services for loan servicing and payments. Implemented asynchronous payment notifications and automated delivery with AWS CodePipeline.',
+    environment: ['C#', '.NET Framework', 'ASP.NET MVC 5', 'ASP.NET Web API 2', 'MVC Architecture', 'ReactJS', 'Redux', 'RESTful APIs', 'Entity Framework 6', 'MongoDB', 'AWS Lambda', 'AWS API Gateway', 'Amazon S3', 'RabbitMQ', 'OAuth2', 'JWT Authentication', 'xUnit', 'AWS CodePipeline', 'AWS CodeBuild', 'Git', 'CI/CD', 'Agile Scrum.'],
   },
   {
     company: 'Starbucks', sector: 'Retail', place: 'Seattle, WA',
     dates: 'May 2017 – May 2019', role: '.NET Developer',
     work: 'Developed Angular interfaces and ASP.NET services for customer engagement and loyalty. Integrated payment gateways and optimized SQL Server for high-volume retail transactions.',
+    environment: ['C#', '.NET Framework 4.6.2/4.7.2', 'ASP.NET MVC 5', 'ASP.NET Web API 2', 'Angular', 'TypeScript', 'RESTful APIs', 'SOAP Web Services', 'ADO.NET', 'SQL Server 2016', 'XML', 'JSON', 'OAuth2', 'JWT Authentication', 'Azure App Services', 'Azure API Management (APIM)', 'Azure Service Bus', 'xUnit', 'Azure DevOps CI/CD', 'Log4Net', 'Agile Scrum.'],
   },
   {
     company: 'HCLTech', sector: 'Healthcare', place: 'Chennai, India',
     dates: 'Mar 2015 – Apr 2017', role: '.NET Developer',
     work: 'Developed claims, patient onboarding, and reporting workflows using ASP.NET WebForms, SOAP, and SQL Server. The résumé reports a 20% improvement in workflow efficiency.',
+    environment: ['C#', 'ASP.NET WebForms', '.NET Framework', 'SOAP Web Services', 'ADO.NET', 'SQL Server 2012/2014', 'Stored Procedures', 'Views', 'Triggers', 'XML', 'HTML5', 'CSS3', 'JavaScript', 'jQuery', 'AJAX', 'NUnit', 'MSTest', 'SVN (Subversion)', 'JIRA', 'Waterfall SDLC.'],
   },
 ]
 
@@ -63,6 +68,31 @@ export const projects = [
     outcome: 'Supported asynchronous payment notifications and distributed financial processing.',
     details: 'Used React and Redux for interactive interfaces, AWS API Gateway and Lambda for serverless processing, and RabbitMQ for messaging and retries.',
   },
+]
+
+export const clientProjects = [
+  ...projects,
+  {
+    title: 'Retail loyalty and payment workflows', client: 'Starbucks', visual: 'retail',
+    description: 'Built customer-facing applications for loyalty management, customer engagement, and retail payments.',
+    stack: ['Angular', 'ASP.NET MVC 5', 'SQL Server 2016', 'Azure Service Bus'],
+    outcome: 'Supported loyalty workflows and high-volume retail transactions.',
+    details: 'Developed Angular interfaces and ASP.NET MVC and Web API services. Integrated payment gateways and third-party platforms via REST and SOAP, and tuned SQL Server queries and database objects.',
+  },
+  {
+    title: 'Healthcare claims and patient onboarding', client: 'HCLTech', visual: 'claims',
+    description: 'Developed applications for claims administration, patient onboarding, and operational reporting.',
+    stack: ['ASP.NET WebForms', 'SOAP', 'ADO.NET', 'SQL Server'],
+    outcome: 'The engagement improved workflow efficiency by 20% and reduced manual intervention.',
+    details: 'Built reusable WebForms controls and integrated legacy healthcare systems through XML-based SOAP services. Used ADO.NET and SQL Server stored procedures for transactional processing and reporting.',
+  },
+]
+
+export const featuredStack = [
+  ['Backend', ['C#', 'ASP.NET Core Web API', 'Microservices']],
+  ['Frontend', ['Angular', 'React', 'TypeScript']],
+  ['Cloud & data', ['Azure', 'AWS', 'SQL Server']],
+  ['AI & search', ['Azure OpenAI', 'Azure AI Search', 'RAG']],
 ]
 
 export const profile = {
