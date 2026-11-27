@@ -44,8 +44,8 @@ nav a:hover, nav a[aria-current] { color: #e4c5a1; }
 .command a { display:block; padding: .4rem .6rem; border-radius:.35rem; }
 .command a:hover { background: #49291d; }
 .hero { position: relative; overflow: clip; background: radial-gradient(ellipse at 75% 44%,#70351d80,transparent 53%),radial-gradient(ellipse at 92% 84%,#571a3755,transparent 45%),var(--black); }
-.hero-grid { display:grid; grid-template-columns: .97fr 1.15fr; align-items:center; min-height: min(43rem, 76svh); padding-block: 3rem; }
-.hero-copy { position:relative; z-index:2; }
+.hero-grid { display:grid; grid-template-columns: minmax(0,1.16fr) minmax(0,1fr); align-items:center; min-height: min(43rem, 76svh); padding-block: 3rem; }
+.hero-copy { position:relative; z-index:2; container-type:inline-size; }
 .eyebrow { color: #e2c29d; font: 600 .82rem/1.5 var(--technical); letter-spacing:.09em; text-transform:uppercase; }
 h1,h2,h3 { font-family: var(--heading); font-weight: 650; line-height: 1.06; }
 h1 { font-size:clamp(3rem,7.1vw,7rem); letter-spacing:-.073em; margin-block:.9rem 1.15rem; text-wrap:balance; }
@@ -234,16 +234,18 @@ footer .shell { display:flex; justify-content:space-between; gap:1rem; padding-b
 
 .hero .hero-name {
   color:var(--white);
-  font-family:var(--heading);
-  font-size:clamp(3.55rem,8.4vw,8.75rem);
-  font-weight:800;
-  letter-spacing:-.072em;
+  font-family:"Inter Variable",system-ui,sans-serif;
+  font-size:clamp(2.5rem,9.5vw,10rem);
+  font-size:clamp(2.5rem,22cqi,10rem);
+  font-weight:850;
+  letter-spacing:-.08em;
   line-height:.91;
-  text-wrap:balance;
   margin-block:.9rem 1.1rem;
 }
+.hero-name span {display:block}
+.hero-name span:last-child:not(:empty) {color:#f2ad86}
 .hero-headline {font:650 clamp(1.2rem,2.6vw,1.85rem)/1.15 var(--heading);color:#f0cfc2}
-[data-compact=true] .hero .hero-name {font-size:clamp(2.7rem,7vw,5rem);text-wrap:wrap}
+[data-compact=true] .hero .hero-name {font-size:clamp(2.5rem,15cqi,5.6rem)}
 .core-stack article > p {color:var(--silver);margin-top:.45rem}
 .core-stack .tags li {padding:0;background:transparent}
 .core-stack .tags a {display:block;background:var(--glass);border:1px solid var(--line);border-radius:.3rem;padding:.3rem .5rem;color:var(--white);text-decoration:none}
@@ -252,6 +254,3 @@ footer .shell { display:flex; justify-content:space-between; gap:1rem; padding-b
 .project-highlights li {padding:.45rem .65rem;border-left:2px solid var(--cyan);background:#301b11}
 .project-highlights strong {color:var(--white);font-size:.94rem}
 .project-highlights li p {margin-top:.2rem;color:var(--silver);font-size:.92rem}
-@media(max-width:47.5rem) {
-  .hero .hero-name {font-size:clamp(2.9rem,12vw,5rem)}
-}
