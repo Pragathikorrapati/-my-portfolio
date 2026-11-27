@@ -7,11 +7,11 @@ const links = [
 ]
 
 const routes = {
-  court: ['Angular', 'ASP.NET Core', 'Azure Service Bus', 'AKS'],
-  search: ['Research question', 'Azure AI Search', 'Vector retrieval', 'Azure OpenAI'],
+  court: ['Angular', 'ASP.NET Core', 'Azure Service Bus', 'Azure AI Search'],
   health: ['Member portals', '.NET services', 'FHIR / HL7', 'X12 EDI'],
   finance: ['React', 'Web API', 'AWS Lambda', 'RabbitMQ'],
 }
+const mapLabels = { court: 'Court systems', health: 'Healthcare', finance: 'Finance' }
 const nodeIcons = [Layers, Braces, Database, Cloud]
 const points = [[17, 23], [65, 23], [65, 71], [20, 71]]
 
@@ -98,7 +98,7 @@ export default function Atlas() {
               <div className="map-select" role="group" aria-label="Preview an architecture">
                 {projects.map(({ title, visual }, index) => (
                   <button type="button" title={title} aria-pressed={active === index} key={visual} onClick={() => setActive(index)}>
-                    {['Court systems', 'Search', 'Healthcare', 'Finance'][index]}
+                    {mapLabels[visual] ?? title}
                   </button>
                 ))}
               </div>

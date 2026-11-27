@@ -44,17 +44,10 @@ export const engagements = [
 export const projects = [
   {
     title: 'Judicial workflow modernization', client: 'Superior Court of Los Angeles County', visual: 'court',
-    description: 'Modernized case processing and court operations with independently deployable services and accessible web applications.',
-    stack: ['ASP.NET Core 8', 'Angular', 'Azure Service Bus', 'AKS'],
-    outcome: 'The engagement improved response times by 35% and reduced manual processing effort by 40%.',
-    details: 'Built secure APIs and responsive interfaces, with event-driven messaging for hearing reminders and case updates. Power BI dashboards reduced manual reporting effort by 50%.',
-  },
-  {
-    title: 'Contextual search for court records', client: 'Superior Court of Los Angeles County', visual: 'search',
-    description: 'Built retrieval-augmented generation for legal documents, court records, and case histories.',
-    stack: ['Azure OpenAI', 'Azure AI Search', 'Semantic Kernel', 'RAG'],
-    outcome: 'Enabled contextual retrieval and reduced manual research effort.',
-    details: 'Combined vector search with Azure OpenAI to retrieve relevant case material. Related AI work supported case summarization and legal document analysis.',
+    description: 'Modernized court operations with accessible case-processing applications, independently deployable services, and contextual search for court records.',
+    stack: ['ASP.NET Core 8', 'Angular', 'Azure Service Bus', 'AKS', 'Azure AI Search', 'Azure OpenAI', 'Semantic Kernel', 'RAG'],
+    outcome: 'The engagement improved response times by 35% and reduced manual processing effort by 40%. Contextual records retrieval also reduced manual research effort.',
+    details: 'Built secure APIs and responsive interfaces, with event-driven messaging for hearing reminders and case updates. Power BI dashboards reduced manual reporting effort by 50%. For contextual search, combined vector search with Azure OpenAI to retrieve relevant court records, legal documents, and case histories. Related AI work supported case summarization and legal document analysis.',
   },
   {
     title: 'Healthcare data exchange', client: 'Optum', visual: 'health',
