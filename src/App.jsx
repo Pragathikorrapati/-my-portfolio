@@ -52,7 +52,9 @@ function Skills({ active, setActive }) {
       </div>
       <div className="glass skill-detail" aria-live="polite">
         <h3>{skills[active][0]}</h3>
-        <p>{skills[active][1]}</p>
+        <ul className="tags" aria-label="Technologies in this category">
+          {skills[active][1].split(', ').map(tech => <li key={tech}>{tech}</li>)}
+        </ul>
         {skillContext[active] && <p>{skillContext[active]}</p>}
       </div>
     </div>
@@ -152,6 +154,7 @@ export default function App() {
   const [desktop, setDesktop] = useState(() => matchMedia('(min-width: 760px) and (pointer: fine)').matches)
   const [activeSkill, setActiveSkill] = useState(0)
   const [skillQuery, setSkillQuery] = useState('')
+  const [skillReset, setSkillReset] = useState(0)
   const [command, setCommand] = useState('')
   const dialog = useRef(null)
   const menu = useRef(null)
@@ -222,8 +225,8 @@ export default function App() {
           <div className="shell hero-grid">
             <div className="hero-copy">
               <p className="eyebrow">{profile.title}</p>
-              <h1 id="hero-title">{profile.headline}</h1>
-              <p className="hero-name">{profile.name}</p>
+              <h1 id="hero-title" className="hero-name">{profile.name}</h1>
+              <p className="hero-headline">{profile.headline}</p>
               <p className="hero-intro">{profile.introduction}</p>
               <div className="hero-actions">
                 {clientProjects.length > 0 && <a className="button primary" href="#projects">Explore projects</a>}
@@ -270,17 +273,23 @@ export default function App() {
         {!!skills.length && <section id="skills" className="section shell">
           <SectionTitle label="Technical skills">Technology stack</SectionTitle>
           <div className="core-stack" aria-label="Key technologies">
-            {featuredStack.map(([label, list]) => (
+            {featuredStack.map(([label, list, description]) => (
               <article className="glass" key={label}>
                 <h3>{label}</h3>
-                <ul className="tags">{list.map(tech => <li key={tech}>{tech}</li>)}</ul>
+                <p>{description}</p>
+                <ul className="tags">{list.map(tech => (
+                  <li key={tech}><a href="#technical-skills" onClick={() => {
+                    setSkillQuery(tech)
+                    setSkillReset(value => value + 1)
+                  }}>{tech}</a></li>
+                ))}</ul>
               </article>
             ))}
           </div>
           <Skills active={activeSkill} setActive={setActiveSkill} />
-          <div className="quantum-skill-explorer">
+          <div id="technical-skills" className="quantum-skill-explorer">
             <h3>Full technical skills</h3>
-            <SkillExplorer query={skillQuery} setQuery={setSkillQuery} />
+            <SkillExplorer key={skillReset} query={skillQuery} setQuery={setSkillQuery} />
           </div>
         </section>}
         {!!clientProjects.length && <section id="projects" className="section tinted">
@@ -294,6 +303,9 @@ export default function App() {
                   <h3>{project.title}</h3>
                   {engagement && <p className="project-role">{engagement.role} · {engagement.dates}</p>}
                   <p>{project.description}</p>
+                  <ul className="project-highlights" aria-label="Project highlights">
+                    {project.highlights.map(([title, detail]) => <li key={title}><strong>{title}</strong><p>{detail}</p></li>)}
+                  </ul>
                   <ul className="tags" aria-label="Technologies">{project.stack.map((tech) => <li key={tech}>{tech}</li>)}</ul>
                   <p className="outcome"><strong>Outcome</strong> {project.outcome}</p>
                   <details><summary>Implementation details <ChevronDown size={18} aria-hidden="true" /></summary><p>{project.details}</p></details>

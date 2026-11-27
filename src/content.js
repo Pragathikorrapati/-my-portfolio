@@ -53,6 +53,10 @@ export const projects = [
     stack: ['ASP.NET Core 8', 'Angular', 'Azure Service Bus', 'AKS', 'Azure AI Search', 'Azure OpenAI', 'Semantic Kernel', 'RAG'],
     outcome: 'The engagement improved response times by 35% and reduced manual processing effort by 40%. Contextual records retrieval also reduced manual research effort.',
     details: 'Built secure APIs and responsive interfaces, with event-driven messaging for hearing reminders and case updates. Power BI dashboards reduced manual reporting effort by 50%. For contextual search, combined vector search with Azure OpenAI to retrieve relevant court records, legal documents, and case histories. Related AI work supported case summarization and legal document analysis.',
+    highlights: [
+      ['Case processing and court operations', 'Built accessible Angular and ASP.NET Core applications and event-driven services for case updates, hearing reminders, and document workflows.'],
+      ['Search and reporting', 'Built contextual records retrieval with Azure AI Search and Azure OpenAI, and developed Power BI dashboards that reduced manual reporting effort by 50%.'],
+    ],
   },
   {
     title: 'Healthcare data exchange', client: 'Optum', visual: 'health',
@@ -60,6 +64,10 @@ export const projects = [
     stack: ['.NET 6', 'FHIR', 'HL7', 'ANSI X12 EDI'],
     outcome: 'Streamlined eligibility verification, enrollment, claims adjudication, and reimbursement workflows.',
     details: 'Built secure APIs with Azure API Management and integrated transactions for eligibility, claims status, enrollment, claims submission, and remittance.',
+    highlights: [
+      ['Enrollment and claims interoperability', 'Designed .NET microservices and Angular portals, and implemented FHIR, HL7, and ANSI X12 EDI exchanges for eligibility, enrollment, and claims.'],
+      ['Member workflow automation', 'Integrated Dynamics 365, Dataverse, and Azure Functions to automate member workflows and synchronize data.'],
+    ],
   },
   {
     title: 'Digital loan servicing and payments', client: 'BHG Financial', visual: 'finance',
@@ -67,6 +75,10 @@ export const projects = [
     stack: ['React', 'ASP.NET Web API 2', 'AWS Lambda', 'RabbitMQ'],
     outcome: 'Supported asynchronous payment notifications and distributed financial processing.',
     details: 'Used React and Redux for interactive interfaces, AWS API Gateway and Lambda for serverless processing, and RabbitMQ for messaging and retries.',
+    highlights: [
+      ['Customer-facing loan servicing', 'Developed React and Redux interfaces and ASP.NET Web API services for loan servicing and payment workflows.'],
+      ['Asynchronous payment processing', 'Used AWS API Gateway and Lambda for serverless processing and RabbitMQ for asynchronous payment notifications, messaging, and retries.'],
+    ],
   },
 ]
 
@@ -78,6 +90,10 @@ export const clientProjects = [
     stack: ['Angular', 'ASP.NET MVC 5', 'SQL Server 2016', 'Azure Service Bus'],
     outcome: 'Supported loyalty workflows and high-volume retail transactions.',
     details: 'Developed Angular interfaces and ASP.NET MVC and Web API services. Integrated payment gateways and third-party platforms via REST and SOAP, and tuned SQL Server queries and database objects.',
+    highlights: [
+      ['Loyalty and customer engagement', 'Built Angular interfaces and ASP.NET MVC and Web API services for customer-facing loyalty and engagement workflows.'],
+      ['Retail payment integrations', 'Connected payment gateways using REST and SOAP, and optimized SQL Server queries for high-volume retail transactions.'],
+    ],
   },
   {
     title: 'Healthcare claims and patient onboarding', client: 'HCLTech', visual: 'claims',
@@ -85,14 +101,18 @@ export const clientProjects = [
     stack: ['ASP.NET WebForms', 'SOAP', 'ADO.NET', 'SQL Server'],
     outcome: 'The engagement improved workflow efficiency by 20% and reduced manual intervention.',
     details: 'Built reusable WebForms controls and integrated legacy healthcare systems through XML-based SOAP services. Used ADO.NET and SQL Server stored procedures for transactional processing and reporting.',
+    highlights: [
+      ['Claims and onboarding applications', 'Built reusable ASP.NET WebForms controls for claims administration, patient onboarding, and operational reporting.'],
+      ['Legacy integration and reporting', 'Integrated healthcare systems over XML-based SOAP services and used ADO.NET and SQL Server stored procedures for transactions and reporting.'],
+    ],
   },
 ]
 
 export const featuredStack = [
-  ['Backend', ['C#', 'ASP.NET Core Web API', 'Microservices']],
-  ['Frontend', ['Angular', 'React', 'TypeScript']],
-  ['Cloud & data', ['Azure', 'AWS', 'SQL Server']],
-  ['AI & search', ['Azure OpenAI', 'Azure AI Search', 'RAG']],
+  ['Backend', ['C#', 'ASP.NET Core Web API', 'Microservices', 'Entity Framework Core'], 'Secure APIs, case-processing services, and transactional applications.'],
+  ['Frontend', ['Angular', 'React', 'TypeScript', 'Blazor'], 'Accessible interfaces for court operations, healthcare portals, and loan servicing.'],
+  ['Cloud & data', ['Azure', 'AWS', 'Kubernetes', 'SQL Server'], 'Cloud delivery, event-driven integrations, and database performance tuning.'],
+  ['AI & search', ['Azure OpenAI', 'Azure AI Search', 'Semantic Kernel', 'RAG'], 'Contextual retrieval, case summarization, and legal document analysis.'],
 ]
 
 export const profile = {
