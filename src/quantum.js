@@ -1,9 +1,9 @@
 export const quantum = {
-  black: '#110804',
-  navy: '#24140d',
-  blue: '#da6536',
-  cyan: '#dd8e33',
-  violet: '#e969a6',
-  white: '#f7f4f3',
-  silver: '#b5a097',
+  black: '#071610',
+  navy: '#0e241a',
+  blue: '#49c686',
+  cyan: '#70e39d',
+  violet: '#75d6bd',
+  white: '#f1fbf4',
+  silver: '#aec5b7',
 }
