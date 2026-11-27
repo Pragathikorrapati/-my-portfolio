@@ -23,6 +23,10 @@ npm run preview
 
 Open <http://localhost:4173/-my-portfolio/>. The deployment output is in `dist/`.
 
+## Preview Systems Atlas
+
+The alternate design is a separate Vite entry. With the development server running, open <http://localhost:5173/-my-portfolio/themes/systems-atlas/>. It shares the portfolio content from `src/content.js` and has its own React components and stylesheet in `src/Atlas.jsx` and `src/atlas.css`.
+
 ## Edit the portfolio
 
 - `src/content.js` holds the profile, engagements, projects, skills, credentials, contact links, and Innovation Lab steps. Keep skill category indexes in sync with the skill list when changing the featured globe links.
