@@ -71,3 +71,35 @@ export const projects = [
     details: 'Used React and Redux for interactive interfaces, AWS API Gateway and Lambda for serverless processing, and RabbitMQ for messaging and retries.',
   },
 ]
+
+export const profile = {
+  name: 'Pragathi Korrapati',
+  initials: 'PK',
+  title: 'Senior Full Stack .NET Developer',
+  headline: 'Engineering systems that scale.',
+  introduction: 'I build enterprise applications, secure APIs, and cloud integrations for complex workflows.',
+  experience: '11+ years',
+  sectors: 'Government, healthcare, finance, retail',
+  background: 'I work across the stack, from Angular, React, and Blazor interfaces to ASP.NET Core APIs, database optimization, and deployment on Azure and AWS. My recent work includes retrieval-augmented search for legal records and event-driven services for court workflows.',
+  education: [{ degree: 'Bachelor of Technology in Computer Science', institution: 'KL University' }],
+  specialization: '.NET',
+  sceneSkills: [
+    { label: 'C#', category: 0 }, { label: 'Azure', category: 2 },
+    { label: 'Web APIs', category: 5 }, { label: 'Angular', category: 1 },
+  ],
+}
+
+export const innovation = [
+  { label: 'Ask a question', title: 'Start with a research question', detail: 'A question supplies the context for finding relevant court records, legal documents, or case histories.' },
+  { label: 'Retrieve', title: 'Find relevant records', detail: 'Azure AI Search and vector search identify source material related to the question.' },
+  { label: 'Summarize', title: 'Generate a contextual summary', detail: 'Azure OpenAI uses the retrieved material as context for a summary. This walkthrough describes the architecture without using client records or calling a model.' },
+]
+
+export const skillContext = [
+  'Judicial microservices and record management',
+  'Healthcare portals and customer-facing financial interfaces',
+  'Azure delivery for judicial systems and AWS delivery for financial workflows',
+  'Case reporting, notifications, and payment processing',
+  'Contextual search for legal documents and case histories',
+  'Healthcare interoperability and secure enterprise APIs',
+]
