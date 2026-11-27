@@ -1,6 +1,6 @@
 # Pragathi Korrapati · Professional Portfolio
 
-A static React portfolio built with Vite, Tailwind CSS, Lucide icons, and locally bundled fonts. The case studies describe work outlined in Pragathi’s résumé, with outcomes attributed to the relevant client engagements.
+A static React portfolio built with Vite, Tailwind CSS, Lucide icons, locally bundled fonts, and a lazy-loaded Three.js scene rendered with React Three Fiber. The case studies describe work outlined in Pragathi’s résumé, with outcomes attributed to the relevant client engagements.
 
 ## Preview locally
 
@@ -25,10 +25,11 @@ Open <http://localhost:4173/-my-portfolio/>. The deployment output is in `dist/`
 
 ## Edit the portfolio
 
-- `src/content.js` holds client engagements, case studies, technical skills, and contact links.
-- `src/App.jsx` contains the page and reusable components.
-- `src/style.css` contains the design tokens, layouts, and responsive styles.
-- `index.html` contains SEO and social metadata. `public/favicon.svg` supplies the favicon.
+- `src/content.js` holds the profile, engagements, projects, skills, credentials, contact links, and Innovation Lab steps. Keep skill category indexes in sync with the skill list when changing the featured globe links.
+- `src/App.jsx` contains the accessible portfolio and interaction components.
+- `src/Scene.jsx` contains the procedural WebGL scene. Touch devices, reduced-motion users, and devices without WebGL can use the CSS globe and the same HTML navigation and technical content. The scene pauses outside the viewport and when the tab is hidden.
+- `src/style.css` and `src/quantum.js` contain the CSS and WebGL theme values. Update the metadata in `index.html` and the monogram in `public/favicon.svg` when reusing the design.
+- The contact form prepares a draft in the visitor’s email client. This static site requires no environment variables or delivery service.
 
 ## Publish to GitHub Pages after review
 
