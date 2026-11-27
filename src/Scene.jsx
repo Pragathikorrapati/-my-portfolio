@@ -67,7 +67,7 @@ function Globe({ density, scroll }) {
       <fog attach="fog" args={[quantum.black, 8, 19]} />
       <points ref={stars}>
         <bufferGeometry><primitive object={dust} attach="attributes-position" /></bufferGeometry>
-        <pointsMaterial color="#aaddbc" size={.029} transparent opacity={.65} />
+        <pointsMaterial color="#a9b5c7" size={.029} transparent opacity={.65} />
       </points>
       <points ref={terrain}>
         <bufferGeometry><primitive object={ground} attach="attributes-position" /></bufferGeometry>
@@ -76,7 +76,7 @@ function Globe({ density, scroll }) {
       <group ref={globe} rotation={[.2, -.65, .15]}>
         <mesh>
           <sphereGeometry args={[1.7, 32, 24]} />
-          <meshBasicMaterial color="#13341f" transparent opacity={.8} />
+          <meshBasicMaterial color="#172943" transparent opacity={.8} />
         </mesh>
         <lineSegments scale={1.12}>
           <bufferGeometry><primitive object={network} attach="attributes-position" /></bufferGeometry>
@@ -91,10 +91,10 @@ function Globe({ density, scroll }) {
         {[ [.94, .18, 2.08], [-.83, .4, 2.27], [1.18, -.58, 2.49] ].map(([x, y, radius], i) => (
           <mesh key={radius} rotation={[x, y, 0]}>
             <torusGeometry args={[radius, .009, 8, 112]} />
-            <meshBasicMaterial color={i === 1 ? quantum.violet : '#78dd9c'} transparent opacity={.72} />
+            <meshBasicMaterial color={i === 1 ? quantum.violet : '#e9c98b'} transparent opacity={.72} />
             <mesh position={[radius, 0, 0]}>
               <sphereGeometry args={[.049, 10, 10]} />
-              <meshBasicMaterial color={i === 1 ? '#c9e9df' : '#bee3cb'} />
+              <meshBasicMaterial color={i === 1 ? '#bccbea' : '#f4dfb0'} />
             </mesh>
           </mesh>
         ))}
