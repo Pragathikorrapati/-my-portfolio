@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Activity, Braces, Cloud, Database, Github, Layers, Linkedin, Mail, Pause, Play } from 'lucide-react'
+import { Activity, Braces, Cloud, Database, Github, Layers, Linkedin, Mail, Pause, Play, Search, X } from 'lucide-react'
 import { contact, engagements, profile, projects, resumeSkills, skills } from './content'
 
 const links = [
@@ -74,16 +74,34 @@ function CaseStudies({ active, select }) {
 
 function SkillExplorer() {
   const [selected, setSelected] = useState(null)
-  const categories = selected === null ? resumeSkills : [resumeSkills[selected]]
+  const [query, setQuery] = useState('')
+  const term = query.toLowerCase().trim()
+  const categories = (selected === null ? resumeSkills : [resumeSkills[selected]])
+    .map(([name, list]) => [name, name.toLowerCase().includes(term) ? list : list.filter(skill => skill.toLowerCase().includes(term))])
+    .filter(([, list]) => list.length > 0)
   return (
     <>
+      <div className="skill-search">
+        <label htmlFor="skill-query">Find a skill</label>
+        <div className="skill-search-field">
+          <Search size={18} aria-hidden="true" />
+          <input id="skill-query" type="search" value={query} placeholder="Search .NET, Azure, React, or FHIR" onChange={(event) => setQuery(event.target.value)} />
+          {query && <button type="button" aria-label="Clear search" onClick={() => {
+            setQuery('')
+            document.getElementById('skill-query').focus()
+          }}><X size={17} aria-hidden="true" /></button>}
+        </div>
+      </div>
       <div className="skill-filter" role="group" aria-label="Filter technical skills">
         <button type="button" aria-pressed={selected === null} onClick={() => setSelected(null)}>All skills</button>
         {resumeSkills.map(([name], index) => (
           <button key={name} type="button" aria-pressed={selected === index} onClick={() => setSelected(index)}>{name}</button>
         ))}
       </div>
-      <div className="skills-grid" aria-live="polite" key={selected ?? 'all'}>
+      <p className="skills-status" role="status">
+        {categories.length ? `Showing ${categories.length} of ${resumeSkills.length} skill categories` : 'No matching skills. Try a different search or category.'}
+      </p>
+      <div className="skills-grid" key={selected ?? 'all'}>
         {categories.map(([name, list]) => (
           <article key={name}><h3>{name}</h3>
             <ul className="skill-chips">{list.map(skill => <li key={skill}>{skill}</li>)}</ul>
@@ -125,7 +143,11 @@ export default function Atlas({ kinetic = false }) {
               <p className="eyebrow">{profile.title}</p>
               <h1>Pragathi <em>Korrapati</em></h1>
               <p>{profile.introduction}</p>
-              <div className="hero-actions"><a className="action" href="#work">Explore my work</a><a className="action secondary" href="#contact">Get in touch</a></div>
+              <div className="hero-actions">
+                <a className="action" href="#work">Explore my work</a>
+                {kinetic && <a className="action secondary" href="#toolkit">Browse technical skills</a>}
+                <a className="action secondary" href="#contact">Get in touch</a>
+              </div>
             </div>
             <div>
               <SystemMap project={projects[active]} paused={paused} setPaused={setPaused} />
@@ -138,7 +160,13 @@ export default function Atlas({ kinetic = false }) {
               </div>
             </div>
           </div>
-          <div className="page-width context-strip"><strong>{profile.experience} in enterprise software</strong><span>{profile.sectors}</span></div>
+          {kinetic ? (
+            <div className="page-width kinetic-highlights">
+              <div><strong>{profile.experience}</strong><span>Enterprise software development</span></div>
+              <a href="#journey"><strong>{engagements[0].company}</strong><span>Latest engagement · {engagements[0].role}</span></a>
+              <a href="#toolkit"><strong>{resumeSkills.length} skill categories</strong><span>Explore the full technical stack</span></a>
+            </div>
+          ) : <div className="page-width context-strip"><strong>{profile.experience} in enterprise software</strong><span>{profile.sectors}</span></div>}
         </section>
         <CaseStudies active={active} select={setActive} />
         <section id="journey" className="journey">
