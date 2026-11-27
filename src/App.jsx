@@ -3,14 +3,16 @@ import {
   ArrowDown, Braces, ChevronDown, Cloud, CodeXml, Database, Github, GraduationCap, Maximize, Minimize,
   Linkedin, Mail, Menu, Pause, Play, Search, ShieldCheck, Sparkles, X,
 } from 'lucide-react'
-import { contact, engagements, innovation, profile, projects, skillContext, skills } from './content'
+import { clientProjects, contact, engagements, featuredStack, innovation, profile, skillContext, skills } from './content'
+
+import SkillExplorer from './SkillExplorer'
 
 const Scene = lazy(() => import('./Scene'))
 const navigation = [
   ['home', 'Home'], ['about', 'About'],
   ...(engagements.length ? [['experience', 'Journey']] : []),
   ...(skills.length ? [['skills', 'Skills']] : []),
-  ...(projects.length ? [['projects', 'Projects']] : []),
+  ...(clientProjects.length ? [['projects', 'Projects']] : []),
   ...(innovation.length ? [['lab', 'Innovation Lab']] : []),
   ...(profile.education.length ? [['education', 'Education']] : []),
   ['contact', 'Contact'],
@@ -149,6 +151,7 @@ export default function App() {
   const [reduced, setReduced] = useState(() => matchMedia('(prefers-reduced-motion: reduce)').matches)
   const [desktop, setDesktop] = useState(() => matchMedia('(min-width: 760px) and (pointer: fine)').matches)
   const [activeSkill, setActiveSkill] = useState(0)
+  const [skillQuery, setSkillQuery] = useState('')
   const [command, setCommand] = useState('')
   const dialog = useRef(null)
   const menu = useRef(null)
@@ -156,7 +159,7 @@ export default function App() {
   const progress = useRef(null)
   const activeSection = usePageProgress(scroll, progress)
   const enabled = desktop && !compact && (!reduced || motion === true)
-  const playing = enabled && (motion ?? !reduced)
+  const playing = !compact && (motion ?? !reduced)
 
   useEffect(() => {
     const motionQuery = matchMedia('(prefers-reduced-motion: reduce)')
@@ -223,7 +226,8 @@ export default function App() {
               <p className="hero-name">{profile.name}</p>
               <p className="hero-intro">{profile.introduction}</p>
               <div className="hero-actions">
-                {projects.length > 0 && <a className="button primary" href="#projects">Explore projects</a>}
+                {clientProjects.length > 0 && <a className="button primary" href="#projects">Explore projects</a>}
+                <a className="button secondary" href="#skills">Explore my stack</a>
                 <a className="button secondary" href="#contact">Get in touch</a>
               </div>
             </div>
@@ -232,7 +236,7 @@ export default function App() {
           <div className="shell hero-controls">
             <div><strong>{profile.experience}</strong><span>{profile.sectors}</span></div>
             <div className="view-controls">
-              {desktop && !compact && <button className="button secondary" type="button" onClick={() => setMotion(!playing)}>{playing ? <Pause size={16} aria-hidden="true" /> : <Play size={16} aria-hidden="true" />}{playing ? 'Pause motion' : 'Play motion'}</button>}
+              {!compact && (desktop || !reduced) && <button className="button secondary" type="button" onClick={() => setMotion(!playing)}>{playing ? <Pause size={16} aria-hidden="true" /> : <Play size={16} aria-hidden="true" />}{playing ? 'Pause motion' : 'Play motion'}</button>}
               <button className="button secondary" type="button" aria-pressed={compact} onClick={() => setCompact(!compact)}>{compact ? 'Cinematic view' : 'Quick view'}</button>
               {document.fullscreenEnabled && <button className="icon-control" type="button"
                 aria-label={fullscreen ? 'Exit full screen' : 'Enter full screen'} onClick={() => {
@@ -265,22 +269,40 @@ export default function App() {
         </section>}
         {!!skills.length && <section id="skills" className="section shell">
           <SectionTitle label="Technical skills">Technology stack</SectionTitle>
+          <div className="core-stack" aria-label="Key technologies">
+            {featuredStack.map(([label, list]) => (
+              <article className="glass" key={label}>
+                <h3>{label}</h3>
+                <ul className="tags">{list.map(tech => <li key={tech}>{tech}</li>)}</ul>
+              </article>
+            ))}
+          </div>
           <Skills active={activeSkill} setActive={setActiveSkill} />
+          <div className="quantum-skill-explorer">
+            <h3>Full technical skills</h3>
+            <SkillExplorer query={skillQuery} setQuery={setSkillQuery} />
+          </div>
         </section>}
-        {!!projects.length && <section id="projects" className="section tinted">
+        {!!clientProjects.length && <section id="projects" className="section tinted">
           <div className="shell">
             <SectionTitle label="Projects">Selected case studies</SectionTitle>
             <div className="case-grid">
-              {projects.map((project) => (
-                <article className="glass quantum-project" key={project.title}>
+              {clientProjects.map((project) => {
+                const engagement = engagements.find(item => item.company === project.client)
+                return <article className="glass quantum-project" key={project.title}>
                   <p className="eyebrow">{project.client}</p>
                   <h3>{project.title}</h3>
+                  {engagement && <p className="project-role">{engagement.role} · {engagement.dates}</p>}
                   <p>{project.description}</p>
                   <ul className="tags" aria-label="Technologies">{project.stack.map((tech) => <li key={tech}>{tech}</li>)}</ul>
                   <p className="outcome"><strong>Outcome</strong> {project.outcome}</p>
                   <details><summary>Implementation details <ChevronDown size={18} aria-hidden="true" /></summary><p>{project.details}</p></details>
+                  {engagement && <details>
+                    <summary>Full client technology stack <ChevronDown size={18} aria-hidden="true" /></summary>
+                    <ul className="tags" aria-label="Client technology stack">{engagement.environment.map(tech => <li key={tech}>{tech}</li>)}</ul>
+                  </details>}
                 </article>
-              ))}
+              })}
             </div>
           </div>
         </section>}
