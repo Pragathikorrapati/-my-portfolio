@@ -195,14 +195,6 @@ footer .shell { display:flex; justify-content:space-between; gap:1rem; padding-b
 .core-stack h3,.quantum-skill-explorer .skills-grid h3 {font-size:1.16rem}
 .core-stack .tags {margin-bottom:0}
 .quantum-skill-explorer {margin-top:2rem}
-.quantum-skill-explorer .skill-search {display:grid;gap:.35rem;max-width:35rem;margin-block:1rem}
-.quantum-skill-explorer label {font-weight:700}
-.quantum-skill-explorer .skill-search-field {display:flex;align-items:center;gap:.55rem;min-height:3rem;padding:0 .65rem;border:1px solid var(--line);border-radius:.55rem;background:var(--glass);color:var(--cyan)}
-.quantum-skill-explorer .skill-search-field:focus-within {outline:2px solid var(--cyan);outline-offset:2px}
-.quantum-skill-explorer input {width:100%;min-width:0;outline:none;color:var(--white)}
-.quantum-skill-explorer input::placeholder {color:var(--silver)}
-.quantum-skill-explorer input::-webkit-search-cancel-button {display:none}
-.quantum-skill-explorer .skill-search-field button {display:grid;place-items:center;min-height:2.75rem;min-width:2.75rem}
 .quantum-skill-explorer .skill-filter,.quantum-skill-explorer .skill-chips {display:flex;flex-wrap:wrap;gap:.45rem}
 .quantum-skill-explorer .skill-filter button,.quantum-skill-explorer .skill-chips li {border:1px solid var(--line);border-radius:.35rem;background:var(--glass);padding:.35rem .55rem;font-size:.88rem}
 .quantum-skill-explorer .skill-filter button {min-height:2.75rem}

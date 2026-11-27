@@ -294,7 +294,7 @@ export default function App() {
           <Skills active={activeSkill} setActive={setActiveSkill} />
           <div id="technical-skills" className="quantum-skill-explorer">
             <h3>Full technical skills</h3>
-            <SkillExplorer key={skillReset} query={skillQuery} setQuery={setSkillQuery} />
+            <SkillExplorer showSearch={false} key={skillReset} query={skillQuery} setQuery={setSkillQuery} />
           </div>
         </section>}
         {!!clientProjects.length && <section id="projects" className="section tinted">
