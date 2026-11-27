@@ -11,6 +11,7 @@ export default defineConfig({
       input: {
         portfolio: fileURLToPath(new URL('./index.html', import.meta.url)),
         atlas: fileURLToPath(new URL('./themes/systems-atlas/index.html', import.meta.url)),
+        kinetic: fileURLToPath(new URL('./themes/kinetic/index.html', import.meta.url)),
       },
     },
   },

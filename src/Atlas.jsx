@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Activity, Braces, Cloud, Database, Github, Layers, Linkedin, Mail, Pause, Play } from 'lucide-react'
-import { contact, engagements, profile, projects, skills } from './content'
+import { contact, engagements, profile, projects, resumeSkills, skills } from './content'
 
 const links = [
   ['work', 'Case studies'], ['journey', 'Experience'], ['toolkit', 'Skills'], ['about', 'About'], ['contact', 'Contact'],
@@ -15,8 +15,7 @@ const mapLabels = { court: 'Court systems', health: 'Healthcare', finance: 'Fina
 const nodeIcons = [Layers, Braces, Database, Cloud]
 const points = [[17, 23], [65, 23], [65, 71], [20, 71]]
 
-function SystemMap({ project }) {
-  const [paused, setPaused] = useState(false)
+function SystemMap({ project, paused, setPaused }) {
   const labels = routes[project.visual] ?? project.stack.slice(0, points.length)
   return (
     <figure className="system-map">
@@ -73,10 +72,39 @@ function CaseStudies({ active, select }) {
   )
 }
 
-export default function Atlas() {
-  const [active, setActive] = useState(0)
+function SkillExplorer() {
+  const [selected, setSelected] = useState(null)
+  const categories = selected === null ? resumeSkills : [resumeSkills[selected]]
   return (
     <>
+      <div className="skill-filter" role="group" aria-label="Filter technical skills">
+        <button type="button" aria-pressed={selected === null} onClick={() => setSelected(null)}>All skills</button>
+        {resumeSkills.map(([name], index) => (
+          <button key={name} type="button" aria-pressed={selected === index} onClick={() => setSelected(index)}>{name}</button>
+        ))}
+      </div>
+      <div className="skills-grid" aria-live="polite" key={selected ?? 'all'}>
+        {categories.map(([name, list]) => (
+          <article key={name}><h3>{name}</h3>
+            <ul className="skill-chips">{list.map(skill => <li key={skill}>{skill}</li>)}</ul>
+          </article>
+        ))}
+      </div>
+    </>
+  )
+}
+
+export default function Atlas({ kinetic = false }) {
+  const [active, setActive] = useState(0)
+  const [paused, setPaused] = useState(false)
+  useEffect(() => {
+    if (!kinetic) return
+    document.body.classList.add('kinetic-page')
+    return () => document.body.classList.remove('kinetic-page')
+  }, [kinetic])
+
+  return (
+    <div className={kinetic ? 'kinetic' : undefined} data-motion-paused={paused}>
       <a className="skip-link" href="#main">Skip to content</a>
       <header className="atlas-header">
         <div className="page-width header-content">
@@ -85,7 +113,13 @@ export default function Atlas() {
         </div>
       </header>
       <main id="main" tabIndex={-1}>
-        <section id="home" className="hero">
+        <section id="home" className="hero" onPointerMove={kinetic ? (event) => {
+          if (paused || event.pointerType === 'touch' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+          const hero = event.currentTarget
+          const bounds = hero.getBoundingClientRect()
+          hero.style.setProperty('--point-x', `${event.clientX - bounds.left}px`)
+          hero.style.setProperty('--point-y', `${event.clientY - bounds.top}px`)
+        } : undefined}>
           <div className="page-width hero-grid">
             <div className="hero-copy">
               <p className="eyebrow">{profile.title}</p>
@@ -94,7 +128,7 @@ export default function Atlas() {
               <div className="hero-actions"><a className="action" href="#work">Explore my work</a><a className="action secondary" href="#contact">Get in touch</a></div>
             </div>
             <div>
-              <SystemMap project={projects[active]} />
+              <SystemMap project={projects[active]} paused={paused} setPaused={setPaused} />
               <div className="map-select" role="group" aria-label="Preview an architecture">
                 {projects.map(({ title, visual }, index) => (
                   <button type="button" title={title} aria-pressed={active === index} key={visual} onClick={() => setActive(index)}>
@@ -125,7 +159,9 @@ export default function Atlas() {
         </section>
         <section id="toolkit" className="section page-width">
           <p className="eyebrow">Skills</p><h2>Across the stack.</h2>
-          <div className="skills-grid">{skills.map(([name, list]) => <article key={name}><h3>{name}</h3><p>{list}</p></article>)}</div>
+          {kinetic ? <SkillExplorer /> :
+            <div className="skills-grid">{skills.map(([name, list]) => <article key={name}><h3>{name}</h3><p>{list}</p></article>)}</div>}
+
         </section>
         <section id="about" className="about">
           <div className="section page-width about-grid">
@@ -143,6 +179,6 @@ export default function Atlas() {
         </section>
       </main>
       <footer><div className="page-width"><span>{profile.name}</span><a href="#home">Back to top</a></div></footer>
-    </>
+    </div>
   )
 }

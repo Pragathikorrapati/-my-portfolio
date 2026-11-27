@@ -96,3 +96,19 @@ export const skillContext = [
   'Contextual search for legal documents and case histories',
   'Healthcare interoperability and secure enterprise APIs',
 ]
+
+export const resumeSkills = [
+  ["Languages", ["C# 8/9/10/11/12 Features", "VB.NET", "JavaScript ES6+", "TypeScript", "SQL", "HTML5", "CSS3", "Python", "LINQ", "JSON", "XML"]],
+  [".NET Technologies", [".NET Framework 4.8.1", ".NET Core 3.1", ".NET 5/6/7/8/10", "ASP.NET Core Web App", "ASP.NET Core Web API", "ASP.NET MVC 5", "ASP.NET Web API 2", "ASP.NET WebForms", "Blazor", "Microservices"]],
+  ["Web Technologies", ["Angular 12 to 18", "AngularJS", "RxJS 7+", "NgRx 15/18", "Angular Material 18", "ReactJS 16/17", "Redux", "React Hooks", "Bootstrap 3/4/5", "jQuery", "AJAX", "Reactive Forms", "WCAG Accessibility Standards"]],
+  ["Databases", ["SQL Server", "PostgreSQL", "Azure SQL", "Oracle 11g", "MongoDB", "Cosmos DB", "Redis", "Power BI", "SSRS"]],
+  ["ORM Frameworks", ["ADO.NET", "Entity Framework", "Entity Framework Core 5/6/7/8", "LINQ", "Repository Pattern", "Unit of Work", "MediatR (Mediator Pattern)"]],
+  ["Healthcare Technologies", ["HIPAA", "FHIR R4", "AHDS", "HL7", "ANSI X12 EDI (270/271, 276/277, 834, 835, 837)"]],
+  ["Testing Frameworks", ["xUnit", "NUnit", "MSTest", "Jasmine", "Karma", "Integration Testing", "API Contract Testing", "Unit Testing"]],
+  ["Web Services", ["RESTful APIs", "SOAP Web Services", "ASP.NET Web API", "Swagger/OpenAPI", "Third-Party API Integration", "Microservices APIs"]],
+  ["Version Control Tools", ["Git", "GitHub", "TFS/TFVC", "SVN (Subversion)"]],
+  ["DevOps & Monitoring Tools", ["Azure DevOps", "AWS CodePipeline", "AWS CodeBuild", "GitHub Actions", "Jenkins", "SonarQube", "Azure Monitor", "Application Insights", "Log4Net"]],
+  ["Cloud Technologies", ["Microsoft Azure", "Azure App Services", "Azure Functions", "Azure API Management (APIM)", "Azure Data Factory", "AKS", "Azure Service Bus", "Azure Key Vault", "Azure Blob Storage", "Azure Monitor", "Application Insights", "Docker", "Kubernetes (AKS/EKS)", "Helm Charts", "AWS Lambda", "AWS EC2", "AWS API Gateway", "Amazon S3"]],
+  ["AI & Generative AI Technologies", ["Azure OpenAI", "Azure AI Search", "Semantic Search", "Vector Search", "Semantic Kernel", "Claude AI", "GitHub Copilot", "LLMs", "Prompt Engineering", "Retrieval-Augmented Generation (RAG)", "Intelligent Document Processing", "AI-Assisted Automation", "Generative AI Integration"]],
+  ["Architecture & messaging", ["Clean Architecture", "Apache Kafka", "RabbitMQ"]],
+]
